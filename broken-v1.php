@@ -19,21 +19,24 @@ $books = [
 function showAllBooks($books) {
     foreach ($books as $id => $book) {
         // need to display each book here
+        displayBook($id, $book);
     }
 }
 
-function showBook() {
+function showBook($book) {
     $id = readline("Enter book id: ");
-    displayBook($id, $books[$id]);
+    displayBook($id, $book[$id]);
 }
 
 function addBook(&$books) {
     $title = readline("Enter title: ");
+    $author = readline("Enter author: ");
     $books[] = ['title' => $title, 'author' => $author];
 }
 
 function deleteBook(&$books) {
     $id = readline("Enter book ID you want to delete: ");
+    unset($books[$id]);
 }
 
 function displayBook($id, $book) {
